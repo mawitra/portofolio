@@ -1,0 +1,1942 @@
+<!DOCTYPE html>
+<html lang="id" class="dark scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Modern</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
+                    },
+                    boxShadow: {
+                        glow: '0 10px 40px rgba(34, 211, 238, 0.18)',
+                        soft: '0 10px 35px rgba(15, 23, 42, 0.12)'
+                    },
+                    animation: {
+                        floaty: 'floaty 6s ease-in-out infinite',
+                        pulseSoft: 'pulseSoft 4s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        floaty: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        pulseSoft: {
+                            '0%, 100%': { opacity: '0.55' },
+                            '50%': { opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glass-dark {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-light {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #22d3ee, #60a5fa, #d946ef);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-950 text-white transition-colors duration-300 dark:bg-slate-950 dark:text-white">
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+        <div
+            class="absolute left-1/2 top-0 h-80 w-80 -translate-x-1/2 rounded-full bg-cyan-500/15 blur-3xl animate-pulseSoft">
+        </div>
+        <div class="absolute right-0 top-40 h-96 w-96 rounded-full bg-fuchsia-500/10 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl"></div>
+        <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.06),transparent_40%)] dark:block hidden">
+        </div>
+    </div>
+
+    <header
+        class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/70 backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/70">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+            <a href="#home" class="flex items-center gap-3">
+                <div
+                    class="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-400 via-blue-500 to-fuchsia-500 text-sm font-black text-white shadow-glow">
+                    PA
+                </div>
+                <div>
+                    <div class="text-sm font-medium text-cyan-400">My Portofolio</div>
+                    <div class="text-base font-bold text-slate-100 dark:text-slate-100">Mawitra
+                    </div>
+                </div>
+            </a>
+
+            <nav class="hidden items-center gap-6 lg:flex">
+                <a href="#about" class="text-sm text-slate-300 transition hover:text-white"><span data-i18n="nav_about">About</span></a>
+                <a href="#skills" class="text-sm text-slate-300 transition hover:text-white"><span data-i18n="nav_skills">Skills</span></a>
+                <a href="#certificates" class="text-sm text-slate-300 transition hover:text-white"><span data-i18n="nav_certificates">Certificates</span></a>
+                <a href="#career" class="text-sm text-slate-300 transition hover:text-white"><span data-i18n="nav_career">Career</span></a>
+                <a href="#experience" class="text-sm text-slate-300 transition hover:text-white"><span data-i18n="nav_experience">Experience</span></a>
+                <a href="#projects" class="text-sm text-slate-300 transition hover:text-white"><span data-i18n="nav_projects">Projects</span></a>
+                <a href="#contact" class="text-sm text-slate-300 transition hover:text-white"><span data-i18n="nav_contact">Kontak</span></a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <div class="hidden sm:flex items-center gap-2 border border-white/10 rounded-2xl bg-white/5 p-1">
+                    <button id="langID"
+                        class="lang-btn active px-3 py-2 rounded-lg text-sm font-medium text-white bg-cyan-500/20 border border-cyan-400/30 transition">
+                        ID
+                    </button>
+                    <button id="langEN"
+                        class="lang-btn px-3 py-2 rounded-lg text-sm font-medium text-slate-400 hover:text-white transition">
+                        EN
+                    </button>
+                </div>
+                <!-- <button id="themeToggle"
+                    class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white transition hover:bg-white/10">
+                    <span id="themeIcon" class="text-lg">☀</span>
+                </button> -->
+                <button id="menuToggle"
+                    class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white lg:hidden">
+                    ☰
+                </button>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="hidden border-t border-white/10 lg:hidden">
+            <div class="mx-auto grid max-w-7xl gap-3 px-4 py-4 sm:px-6 lg:px-8">
+                <a href="#about" class="text-sm text-slate-300"><span data-i18n="nav_about">About</span></a>
+                <a href="#skills" class="text-sm text-slate-300"><span data-i18n="nav_skills">Skills</span></a>
+                <a href="#certificates" class="text-sm text-slate-300"><span data-i18n="nav_certificates">Certificates</span></a>
+                <a href="#career" class="text-sm text-slate-300"><span data-i18n="nav_career">Career</span></a>
+                <a href="#experience" class="text-sm text-slate-300"><span data-i18n="nav_experience">Experience</span></a>
+                <a href="#projects" class="text-sm text-slate-300"><span data-i18n="nav_projects">Projects</span></a>
+                <a href="#contact" class="text-sm text-slate-300"><span data-i18n="nav_contact">Contact</span></a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="relative mx-auto max-w-7xl px-4 pb-10 pt-14 sm:px-6 sm:pt-20 lg:px-8">
+            <div class="grid items-center gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-10">
+                <div>
+
+
+                    <h1 class="mt-6 max-w-4xl text-4xl font-black leading-tight text-white sm:text-3xl lg:text-4xl">
+                        <span class="gradient-text" data-i18n="hero_greeting">Welcome,</span> <span data-i18n="hero_title">let's explore the journey and work I have built</span>
+                    </h1>
+
+                    <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300" data-i18n="hero_desc">
+                        This portfolio summarizes my experience, skills, projects, and other important information that
+                        reflect my
+                        professional journey.
+                    </p>
+
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <a href="#projects"
+                            class="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 px-5 py-3 font-semibold text-white shadow-glow transition hover:-translate-y-0.5">
+                            <span data-i18n="hero_btn_project">View Project</span>
+                            <span>↗</span>
+                        </a>
+                        <a href="#contact"
+                            class="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 font-semibold text-white transition hover:bg-white/10">
+                            <span data-i18n="hero_btn_contact">Contact Me</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+
+                    <div class="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+
+                        <a href="https://instagram.com/username" target="_blank" rel="noopener noreferrer"
+                            class="glass-dark rounded-3xl p-5 transition hover:-translate-y-1 hover:border-pink-400/30">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="flex h-12 w-12 items-center justify-center rounded-2xl bg-pink-500/15 text-pink-400">
+                                    <i class="fa-brands fa-instagram text-xl"></i>
+                                </div>
+                                <div>
+                                    <div class="text-lg font-bold">Instagram</div>
+
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="https://github.com/username" target="_blank" rel="noopener noreferrer"
+                            class="glass-dark rounded-3xl p-5 transition hover:-translate-y-1 hover:border-slate-300/30">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-500/15 text-slate-300">
+                                    <i class="fa-brands fa-github text-xl"></i>
+                                </div>
+                                <div>
+                                    <div class="text-lg font-bold">GitHub</div>
+
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="mailto:emailanda@domain.com"
+                            class="glass-dark rounded-3xl p-5 transition hover:-translate-y-1 hover:border-cyan-400/30">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/15 text-cyan-400">
+                                    <i class="fa-solid fa-envelope text-xl"></i>
+                                </div>
+                                <div>
+                                    <div class="text-lg font-bold">Email</div>
+
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="https://discord.com/users/yourid" target="_blank" rel="noopener noreferrer"
+                            class="glass-dark rounded-3xl p-5 transition hover:-translate-y-1 hover:border-indigo-400/30">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-500/15 text-indigo-400">
+                                    <i class="fa-brands fa-discord text-xl"></i>
+                                </div>
+                                <div>
+                                    <div class="text-lg font-bold">Discord</div>
+
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div class="glass-dark relative overflow-hidden rounded-[32px] p-6 shadow-glow animate-floaty">
+                    <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-fuchsia-500/10">
+                    </div>
+                    <div class="relative">
+                        <div class="flex flex-col items-center text-center">
+                            <div
+                                class="h-36 w-36 overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-glow sm:h-40 sm:w-40">
+                                <img src="images/me/me1.jpeg"
+                                    alt="Foto profil" class="h-full w-full object-cover" />
+                            </div>
+
+                            <div class="mt-6">
+                                <div class="text-3xl font-bold">Mada Dwi Saputra</div>
+                                <div class="mt-2 text-base font-medium text-cyan-300">Software Developer
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+            <div class="mb-10 max-w-3xl">
+                <div
+                    class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-cyan-300">
+                    About Me</div>
+                <h2 class="mt-4 text-3xl font-black sm:text-4xl" data-i18n="about_title">Professional Profile</h2>
+                <p class="mt-4 text-base leading-8 text-slate-300" data-i18n="about_desc">Displaying professional information, work focus, and
+                    key
+                    values brought to every project and collaboration.</p>
+            </div>
+
+            <div class="grid gap-6 lg:grid-cols-2">
+                <div class="glass-dark rounded-[32px] p-7">
+                    <h3 class="text-xl font-bold" data-i18n="about_focus_title">Profession & Main Focus</h3>
+                    <p class="mt-5 text-base leading-8 text-slate-300" data-i18n="about_focus_text">
+                        Focuses on developing cross-functional digital solutions: mobile application development,
+                        websites
+                        business, backend integration, system analysis, to business development.
+                        This combination makes each solution not only technically robust, but also technically relevant
+                        operations and business.
+                    </p>
+                </div>
+
+                <div class="glass-dark rounded-[32px] p-7">
+                    <h3 class="text-xl font-bold" data-i18n="about_value_title">Value Offered</h3>
+                    <div class="mt-5 grid gap-3 sm:grid-cols-2">
+                        <div class="rounded-2xl bg-white/5 px-4 py-3 text-sm text-slate-200" data-i18n="about_value_1">Needs analysis
+                            details</div>
+
+                        <div class="rounded-2xl bg-white/5 px-4 py-3 text-sm text-slate-200" data-i18n="about_value_2">Neat API integration
+                        </div>
+                        <div class="rounded-2xl bg-white/5 px-4 py-3 text-sm text-slate-200" data-i18n="about_value_3">Focus on efficiency
+                            operational</div>
+                        <div class="rounded-2xl bg-white/5 px-4 py-3 text-sm text-slate-200" data-i18n="about_value_4">Clear system flow</div>
+                        <div class="rounded-2xl bg-white/5 px-4 py-3 text-sm text-slate-200" data-i18n="about_value_5">Scalable solution</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+            <div class="mb-10 max-w-3xl">
+                <div
+                    class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-cyan-300">
+                    Skills & Technology</div>
+                <h2 class="mt-4 text-3xl font-black sm:text-4xl" data-i18n="skills_title">Programming Languages and Capabilities</h2>
+                <p class="mt-4 text-base leading-8 text-slate-300" data-i18n="skills_desc">Displays programming languages, tools, frameworks,
+                    database, and analysis capabilities that support various project needs.</p>
+            </div>
+
+            <div class="grid gap-6 lg:grid-cols-2">
+                <div class="glass-dark rounded-[30px] p-6">
+                    <h3 class="text-xl font-bold" data-i18n="skills_languages">Programming Languages</h3>
+                    <div class="mt-5 flex flex-wrap gap-3">
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-solid fa-code text-cyan-300"></i>Dart</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-brands fa-php text-indigo-300"></i>PHP</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-brands fa-js text-yellow-300"></i>JavaScript</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-brands fa-java text-orange-300"></i>Java</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-solid fa-g text-sky-300"></i>Golang</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-brands fa-python text-blue-300"></i>Python</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-brands fa-html5 text-orange-400"></i>HTML</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-brands fa-css3-alt text-blue-400"></i>CSS</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-solid fa-database text-emerald-300"></i>SQL</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-solid fa-brackets-curly text-pink-300"></i>JSON</span>
+                    </div>
+                </div>
+
+                <div class="glass-dark rounded-[30px] p-6">
+                    <h3 class="text-xl font-bold" data-i18n="skills_frameworks">Framework & Tools</h3>
+                    <div class="mt-5 flex flex-wrap gap-3">
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-solid fa-mobile-screen-button text-cyan-300"></i>Flutter</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-brands fa-laravel text-red-400"></i>Laravel</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-solid fa-bolt text-yellow-300"></i>Lumen</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-solid fa-leaf text-green-300"></i>Spring Boot</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-brands fa-node-js text-green-400"></i>Express.js</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-solid fa-n text-slate-200"></i>Next.js</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-brands fa-vuejs text-emerald-400"></i>Vue.js</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-solid fa-a text-purple-300"></i>AdonisJS</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-solid fa-table-list text-cyan-300"></i>PHPRunner</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-solid fa-plug text-orange-300"></i>REST API</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-brands fa-git-alt text-orange-400"></i>Git</span>
+                    </div>
+                </div>
+
+                <div class="glass-dark rounded-[30px] p-6">
+                    <h3 class="text-xl font-bold" data-i18n="skills_database">Database & Backend</h3>
+                    <div class="mt-5 flex flex-wrap gap-3">
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-solid fa-database text-sky-300"></i>MySQL</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-solid fa-database text-indigo-300"></i>SQLite</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-solid fa-leaf text-green-300"></i>MongoDB</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-solid fa-shield-halved text-cyan-300"></i>Authentication</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-solid fa-server text-slate-300"></i>Server Deployment</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-solid fa-link text-orange-300"></i>API Integration</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-solid fa-diagram-project text-pink-300"></i>Data Modeling</span>
+                    </div>
+                </div>
+
+                <div class="glass-dark rounded-[30px] p-6">
+                    <h3 class="text-xl font-bold" data-i18n="skills_business">Bisnis & Analisis</h3>
+                    <div class="mt-5 flex flex-wrap gap-3">
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-solid fa-magnifying-glass-chart text-cyan-300"></i>System Analysis</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-solid fa-briefcase text-blue-300"></i>Business Development</span>
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"><i
+                                class="fa-solid fa-headset text-emerald-300"></i>Technical Support</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certificates" class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+            <div class="mb-10 max-w-3xl">
+                <div
+                    class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-cyan-300">
+                    Sertifikat</div>
+                <h2 class="mt-4 text-3xl font-black sm:text-4xl" data-i18n="cert_title">Sertifikasi & Pencapaian</h2>
+                <p class="mt-4 text-base leading-8 text-slate-300" data-i18n="cert_desc">Bagian ini menampilkan sertifikasi dalam bentuk
+                    gambar; geser ke samping untuk melihat lainnya.</p>
+            </div>
+
+            <div class="relative">
+                <style>
+                    /* Inline carousel rules (kept inline per request to avoid external CSS) */
+                    #certCarousel {
+                        -ms-overflow-style: none;
+                        scrollbar-width: none;
+                        scroll-padding: 1rem;
+                        background: transparent;
+                    }
+
+                    #certCarousel::-webkit-scrollbar {
+                        display: none;
+                        height: 0;
+                    }
+
+                    /* increase base width so items appear larger */
+                    .cert-item {
+                        scroll-snap-align: start;
+                        flex: 0 0 18rem;
+                    }
+
+                    /* allow images to grow while capping height for consistency */
+                    .cert-img {
+                        width: 100%;
+                        height: auto;
+                        max-height: 18rem;
+                        object-fit: cover;
+                        display: block;
+                    }
+
+                    @media (min-width: 1280px) {
+                        .cert-item {
+                            flex: 0 0 20rem;
+                        }
+
+                        .cert-img {
+                            max-height: 20rem;
+                        }
+                    }
+
+                    @media (max-width: 768px) {
+                        .cert-item {
+                            flex: 0 0 14rem;
+                        }
+
+                        .cert-img {
+                            max-height: 14rem;
+                        }
+                    }
+                </style>
+
+                <div id="certCarousel"
+                    class="no-scrollbar flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth p-2">
+                    <!-- 14 placeholder images: replace with your certificate files -->
+                    <div class="snap-start cert-item flex-shrink-0 w-56 sm:w-64 lg:w-56">
+                        <a href="images/certificates/1.png" tarfget="_blank"><img src="images/certificates/1.png"
+                                alt="Certificate 1" class="cert-img rounded-lg w-full object-cover" /></a>
+                    </div>
+                    <div class="snap-start cert-item flex-shrink-0 w-56 sm:w-64 lg:w-56">
+                        <a href="images/certificates/2.png" target="_blank"><img src="images/certificates/2.png"
+                                alt="Certificate 2" class="cert-img rounded-lg w-full object-cover" /></a>
+                    </div>
+                    <div class="snap-start cert-item flex-shrink-0 w-56 sm:w-64 lg:w-56">
+                        <a href="images/certificates/3.png" target="_blank"><img src="images/certificates/3.png"
+                                alt="Certificate 3" class="cert-img rounded-lg w-full object-cover" /></a>
+                    </div>
+                    <div class="snap-start cert-item flex-shrink-0 w-56 sm:w-64 lg:w-56">
+                        <a href="images/certificates/4.png" target="_blank"><img src="images/certificates/4.png"
+                                alt="Certificate 4" class="cert-img rounded-lg w-full object-cover" /></a>
+                    </div>
+                    <div class="snap-start cert-item flex-shrink-0 w-56 sm:w-64 lg:w-56">
+                        <a href="images/certificates/5.png" target="_blank"><img src="images/certificates/5.png"
+                                alt="Certificate 5" class="cert-img rounded-lg w-full object-cover" /></a>
+                    </div>
+                    <div class="snap-start cert-item flex-shrink-0 w-56 sm:w-64 lg:w-56">
+                        <a href="images/certificates/6.png" target="_blank"><img src="images/certificates/6.png"
+                                alt="Certificate 6" class="cert-img rounded-lg w-full object-cover" /></a>
+                    </div>
+                    <div class="snap-start cert-item flex-shrink-0 w-56 sm:w-64 lg:w-56">
+                        <a href="images/certificates/7.png" target="_blank"><img src="images/certificates/7.png"
+                                alt="Certificate 7" class="cert-img rounded-lg w-full object-cover" /></a>
+                    </div>
+                    <div class="snap-start cert-item flex-shrink-0 w-56 sm:w-64 lg:w-56">
+                        <a href="images/certificates/8.png" target="_blank"><img src="images/certificates/8.png"
+                                alt="Certificate 8" class="cert-img rounded-lg w-full object-cover" /></a>
+                    </div>
+                    <div class="snap-start cert-item flex-shrink-0 w-56 sm:w-64 lg:w-56">
+                        <a href="images/certificates/9.png" target="_blank"><img src="images/certificates/9.png"
+                                alt="Certificate 9" class="cert-img rounded-lg w-full object-cover" /></a>
+                    </div>
+                    <div class="snap-start cert-item flex-shrink-0 w-56 sm:w-64 lg:w-56">
+                        <a href="images/certificates/10.png" target="_blank"><img src="images/certificates/10.png"
+                                alt="Certificate 10" class="cert-img rounded-lg w-full object-cover" /></a>
+                    </div>
+                    <div class="snap-start cert-item flex-shrink-0 w-56 sm:w-64 lg:w-56">
+                        <a href="images/certificates/11.png" target="_blank"><img src="images/certificates/11.png"
+                                alt="Certificate 11" class="cert-img rounded-lg w-full object-cover" /></a>
+                    </div>
+                    <div class="snap-start cert-item flex-shrink-0 w-56 sm:w-64 lg:w-56">
+                        <a href="images/certificates/12.jpg" target="_blank"><img src="images/certificates/12.jpg"
+                                alt="Certificate 12" class="cert-img rounded-lg w-full object-cover" /></a>
+                    </div>
+                    <div class="snap-start cert-item flex-shrink-0 w-56 sm:w-64 lg:w-56">
+                        <a href="images/certificates/13.jpg" target="_blank"><img src="images/certificates/13.jpg"
+                                alt="Certificate 13" class="cert-img rounded-lg w-full object-cover" /></a>
+                    </div>
+                    <div class="snap-start cert-item flex-shrink-0 w-56 sm:w-64 lg:w-56">
+                        <a href="images/certificates/14.png" target="_blank"><img src="images/certificates/14.png"
+                                alt="Certificate 14" class="cert-img rounded-lg w-full object-cover" /></a>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-center gap-3 mt-4">
+                    <button id="certPrev"
+                        class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white hover:bg-white/10">‹</button>
+                    <button id="certNext"
+                        class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white hover:bg-white/10">›</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="career" class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+            <div class="mb-10 max-w-3xl">
+                <div
+                    class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-cyan-300">
+                    Karier</div>
+                <h2 class="mt-4 text-3xl font-black sm:text-4xl" data-i18n="career_title">Perjalanan Karier</h2>
+                <p class="mt-4 text-base leading-8 text-slate-300" data-i18n="career_desc">Timeline karier untuk menunjukkan perkembangan
+                    posisi.</p>
+            </div>
+
+            <div class="relative border-l border-white/10 pl-8 space-y-8">
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-1 h-4 w-4 rounded-full bg-cyan-400"></div>
+                    <div class="glass-dark rounded-[24px] p-6">
+                        <div class="text-sm text-slate-400">2023 - Sekarang</div>
+                        <h3 class="mt-2 text-xl font-bold">Software Developer</h3>
+                        <p class="mt-1 text-sm text-cyan-300">PT. Argenta Danika Pradhana</p>
+
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-1 h-4 w-4 rounded-full bg-cyan-400"></div>
+                    <div class="glass-dark rounded-[24px] p-6">
+                        <div class="text-sm text-slate-400">2023</div>
+                        <h3 class="mt-2 text-xl font-bold">Backend Developer Trainee</h3>
+                        <p class="mt-1 text-sm text-cyan-300">PT. PHINCON</p>
+
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-1 h-4 w-4 rounded-full bg-cyan-400"></div>
+                    <div class="glass-dark rounded-[24px] p-6">
+                        <div class="text-sm text-slate-400">2022</div>
+                        <h3 class="mt-2 text-xl font-bold">Junior Backend Developer</h3>
+                        <p class="mt-1 text-sm text-cyan-300">PT. LSKK Langgeng Sejahtera Kreasi Komputasi</p>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+            <div class="mb-10 max-w-3xl">
+                <div
+                    class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-cyan-300">
+                    Pengalaman Kerja</div>
+                <h2 class="mt-4 text-3xl font-black sm:text-4xl" data-i18n="exp_title">Pengalaman di Perusahaan</h2>
+                <p class="mt-4 text-base leading-8 text-slate-300" data-i18n="exp_desc">Bagian ini menampilkan riwayat kerja, posisi yang
+                    pernah dipegang, dan kontribusi utama pada masing-masing perusahaan.</p>
+            </div>
+
+            <div class="grid gap-6 xl:grid-cols-3">
+                <div class="glass-dark rounded-[30px] p-6">
+                    <div class="text-xs text-slate-400">202310 - Sekarang</div>
+                    <h3 class="mt-3 text-xl font-bold">Software Developer</h3>
+                    <p class="mt-2 text-sm text-cyan-300">PT. Argenta Danika Pradhana</p>
+                    <ul class="mt-5 space-y-3 text-sm leading-7 text-slate-300">
+                        <li>• Merancang dan mengintegrasikan sistem koneksi mesin IoT untuk pembacaan NFC reader dan
+                            RFID dengan protokol komunikasi yang stabil dan aman</li>
+                        <li>• Mengembangkan aplikasi mobile HadirBossque dan LaporBossque dengan fitur absensi
+                            real-time, geolocation tracking, dan face detection untuk verifikasi pengguna</li>
+                        <li>• Membuat website monitoring data untuk menampilkan dashboard analytics, laporan real-time,
+                            dan statistik penggunaan aplikasi dengan visualisasi data yang komprehensif</li>
+                        <li>• Menambahkan dan mengoptimalkan fitur dashboard di website TurjaWali View dengan
+                            peningkatan performa dan user experience</li>
+                        <li>• Melakukan ekstraksi dan analisis data dari file laporan PDF berbentuk gambar untuk
+                            mendukung audit pengecekan mesin EDC Mitra Transaksi Indonesia</li>
+                        <li>• Mengembangkan website portal Security Management System dengan fitur manajemen akses,
+                            logging sistem, dan monitoring keamanan real-time</li>
+                        <li>• Membangun website portal admin KleenHUB dengan sistem manajemen produk, inventory, dan
+                            integrasi payment gateway</li>
+                        <li>• Membuat website portal admin Sentivex untuk pengelolaan data pelanggan, laporan transaksi,
+                            dan analitik performa bisnis</li>
+                        <li>• Mengembangkan website sistem penghitungan penggajian Payroll berbasis data attendance dan
+                            summary timesheet karyawan secara otomatis</li>
+                    </ul>
+                </div>
+                <div class="glass-dark rounded-[30px] p-6">
+                    <div class="text-xs text-slate-400">202307 - 202309</div>
+                    <h3 class="mt-3 text-xl font-bold">Backend Developer Trainee</h3>
+                    <p class="mt-2 text-sm text-cyan-300">PT. PHINCON</p>
+                    <ul class="mt-5 space-y-3 text-sm leading-7 text-slate-300">
+                        <li>• Melakukan analisa mendalam terhadap kebutuhan fungsional aplikasi e-commerce untuk
+                            mentransformasi requirement menjadi spesifikasi RESTful API yang terstruktur</li>
+                        <li>• Berkolaborasi dalam tim untuk membangun RESTful API lengkap menggunakan bahasa pemrograman
+                            Java dengan implementasi best practice dan design pattern yang sesuai</li>
+                        <li>• Melakukan refactoring kode dari Java ke Golang untuk meningkatkan performa, efisiensi
+                            memory, dan kecepatan eksekusi sistem backend</li>
+                    </ul>
+                </div>
+                <div class="glass-dark rounded-[30px] p-6">
+                    <div class="text-xs text-slate-400">202207 - 202212</div>
+                    <h3 class="mt-3 text-xl font-bold">Junior Web Developer</h3>
+                    <p class="mt-2 text-sm text-cyan-300">PT. LSKK</p>
+                    <ul class="mt-5 space-y-3 text-sm leading-7 text-slate-300">
+                        <li>• Mengembangkan sistem absensi berbasis teknologi RFID dengan fitur real-time tracking,
+                            anti-spoofing, dan laporan kehadiran yang akurat</li>
+                        <li>• Membuat sistem monitoring kelembapan tanah untuk tanaman dengan sensor integration, data
+                            logging, dan dashboard visualisasi kondisi lingkungan</li>
+                        <li>• Merancang dan mengimplementasikan aplikasi e-rapat online dengan fitur video conference,
+                            scheduling, minutes of meeting, dan management peserta</li>
+                        <li>• Mengidentifikasi masalah operasional klien dan menawarkan solusi teknis yang implementatif
+                            untuk meningkatkan efisiensi bisnis dan user experience</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+            <div class="mb-10 max-w-3xl">
+                <div
+                    class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-cyan-300">
+                    Project
+                </div>
+                <h2 class="mt-4 text-3xl font-black sm:text-4xl" data-i18n="projects_title">Project Showcase</h2>
+                <p class="mt-4 text-base leading-8 text-slate-300" data-i18n="projects_desc">
+                    Beberapa project yang pernah dikerjakan, lengkap dengan preview tampilan, teknologi yang digunakan,
+                    dan tombol untuk melihat demo maupun repository project.
+                </p>
+            </div>
+
+            <div class="grid gap-8 md:grid-cols-2">
+                <!-- Project 1 -->
+                  <div
+                    class="group overflow-hidden rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30">
+                    <div class="relative overflow-hidden">
+                        <img src="images/project/iventory.png" alt="Aplikasi My Achievement"
+                            class="h-60 w-full object-cover transition duration-500 group-hover:scale-105">
+
+                        <div
+                            class="absolute left-4 top-4 rounded-full border border-cyan-400/30 bg-slate-900/70 px-3 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
+                            Website App / Operations
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white" data-i18n="inventory_title">Iventory — Sistem Manajemen Barang Masuk & Keluar</h3>
+                        <p class="mt-4 text-sm leading-7 text-slate-300" data-i18n="inventory_desc">
+                            Platform manajemen inventory untuk tracking barang masuk dan keluar secara real-time.
+                            Fitur meliputi pencatatan stok, pelaporan pergerakan barang, manajemen gudang, notifikasi
+                            stok minimal, dan laporan analitik untuk optimalisasi inventory dan efisiensi operasional.
+                        </p>
+
+                        <div class="mt-5 flex flex-wrap gap-2">
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Laravel</span>
+                                <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Bootstrap</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">MySQL</span>
+
+                        </div>
+
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <a href="https://github.com/mawitra/iventori" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 transition hover:-translate-y-0.5">
+                                Live Demo
+                                <span>↗</span>
+                            </a>
+
+                            <a href="https://github.com/mawitra/iventori" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                                GitHub
+                                <span>⌘</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="group overflow-hidden rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30">
+                    <div class="relative overflow-hidden">
+                        <img src="images/project/myachievment.png" alt="Aplikasi Iventory"
+                            class="h-60 w-full object-cover transition duration-500 group-hover:scale-105">
+
+                        <div
+                            class="absolute left-4 top-4 rounded-full border border-cyan-400/30 bg-slate-900/70 px-3 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
+                            Website App / Operations
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white">MyAchievement — Platform Unggah Sertifikat & Piagam
+                        </h3>
+                        <p class="mt-4 text-sm leading-7 text-slate-300">
+                            Platform untuk mengunggah, menyimpan, dan memamerkan sertifikat serta piagam digital.
+                            Menyediakan verifikasi berkas, kategori sertifikat, dan dashboard ringkasan untuk meninjau
+                            pencapaian secara mudah.
+                        </p>
+
+                        <div class="mt-5 flex flex-wrap gap-2">
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Laravel</span>
+                                <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Bootstrap</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">MySQL</span>
+
+                        </div>
+
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <a href="https://github.com/mawitra/myachievement" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 transition hover:-translate-y-0.5">
+                                Live Demo
+                                <span>↗</span>
+                            </a>
+
+                            <a href="https://github.com/mawitra/myachievement" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                                GitHub
+                                <span>⌘</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="group overflow-hidden rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30">
+                    <div class="relative overflow-hidden">
+                        <img src="images/project/perpustakaan.png" alt="Aplikasi Iventory"
+                            class="h-60 w-full object-cover transition duration-500 group-hover:scale-105">
+
+                        <div
+                            class="absolute left-4 top-4 rounded-full border border-cyan-400/30 bg-slate-900/70 px-3 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
+                            Website App / Operations
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white">Perpustakaan — Sistem Manajemen Data Buku & Peminjaman</h3>
+                        <p class="mt-4 text-sm leading-7 text-slate-300">
+                            Platform manajemen perpustakaan digital untuk mengelola katalog buku dan sistem peminjaman.
+                            Fitur meliputi database buku lengkap, tracking peminjaman & pengembalian, reminder denda otomatis,
+                            reservasi buku, laporan member aktif, dan dashboard statistic penggunaan perpustakaan untuk
+                            meningkatkan aksesibilitas dan efisiensi pengelolaan koleksi buku.
+                        </p>
+
+                        <div class="mt-5 flex flex-wrap gap-2">
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Laravel</span>
+                                <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Bootstrap</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">MySQL</span>
+
+                        </div>
+
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <a href="https://github.com/mawitra/myachievement" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 transition hover:-translate-y-0.5">
+                                Live Demo
+                                <span>↗</span>
+                            </a>
+
+                            <a href="https://github.com/mawitra/myachievement" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                                GitHub
+                                <span>⌘</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div
+                    class="group overflow-hidden rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30">
+                    <div class="relative overflow-hidden">
+                        <img src="images/project/e-rapat.png" alt="Sistem E-Rapat Online"
+                            class="h-60 w-full object-cover transition duration-500 group-hover:scale-105">
+
+                        <div
+                            class="absolute left-4 top-4 rounded-full border border-cyan-400/30 bg-slate-900/70 px-3 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
+                            Web App / Dashboard
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white">E-Rapat Online — Platform Rapat & Kolaborasi</h3>
+                        <p class="mt-4 text-sm leading-7 text-slate-300">
+                            Solusi rapat daring untuk penjadwalan, video conference, pembagian agenda, pencatatan
+                            notulen,
+                            dan manajemen peserta dengan integrasi kalender serta rekaman rapat untuk kemudahan
+                            kolaborasi.
+                        </p>
+
+                        <div class="mt-5 flex flex-wrap gap-2">
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Laravel</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">JavaScript</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">MySQL</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Bootstrap</span>
+                        </div>
+
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <a href="https://github.com/mawitra/E-Rapat-Backend" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 transition hover:-translate-y-0.5">
+                                Live Demo
+                                <span>↗</span>
+                            </a>
+
+                            <a href="https://github.com/mawitra/E-Rapat-Backend" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                                GitHub
+                                <span>⌘</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div
+                    class="group overflow-hidden rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30">
+                    <div class="relative overflow-hidden">
+                        <img src="images/project/rfid.png" alt="Website Portfolio"
+                            class="h-60 w-full object-cover transition duration-500 group-hover:scale-105">
+
+                        <div
+                            class="absolute left-4 top-4 rounded-full border border-cyan-400/30 bg-slate-900/70 px-3 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
+                            Website / IoT
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white">Absensi RFID</h3>
+                        <p class="mt-4 text-sm leading-7 text-slate-300">
+                            Aplikasi absensi berbasis RFID untuk meningkatkan efisiensi dan akurasi dalam pencatatan
+                            kehadiran.
+                        </p>
+
+                        <div class="mt-5 flex flex-wrap gap-2">
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">HTML</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Tailwind
+                                CSS</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Adonis
+                                JS</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Rabbit
+                                MQ</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">MySQL</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Arduino
+                                IDE</span>
+
+                        </div>
+
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <a href="https://github.com/mawitra/core-api" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 transition hover:-translate-y-0.5">
+                                Live Demo
+                                <span>↗</span>
+                            </a>
+
+                            <a href="https://github.com/mawitra/core-api" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                                GitHub
+                                <span>⌘</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div
+                    class="group overflow-hidden rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30">
+                    <div class="relative overflow-hidden">
+                        <img src="images/project/java.png" alt="Project Image" class="h-60 w-full object-cover">
+
+                        <div
+                            class="absolute left-4 top-4 rounded-full border border-cyan-400/30 bg-slate-900/70 px-3 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
+                            Backend / Restful API
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white">Java-Laza — Backend E‑Commerce (REST API)</h3>
+                        <p class="mt-4 text-sm leading-7 text-slate-300">
+                            Backend e‑commerce penuh untuk katalog produk, keranjang, proses checkout, manajemen
+                            pesanan, dan autentikasi pengguna. Dibangun menggunakan Spring Boot with RESTful APIs
+                            dan MySQL untuk performa, keamanan, dan skalabilitas.
+                        </p>
+
+                        <div class="mt-5 flex flex-wrap gap-2">
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">JAVA
+                                Spring Boot</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Golang</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">PostgreSQL</span>
+                        </div>
+
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <a href="https://github.com/mawitra/java-laza" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 transition hover:-translate-y-0.5">
+                                Live Demo
+                                <span>↗</span>
+                            </a>
+
+                            <a href="https://github.com/mawitra/java-laza" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                                GitHub
+                                <span>⌘</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="group overflow-hidden rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30">
+                    <div class="relative overflow-hidden">
+                        <img src="images/project/hadir_web.png" alt="Project Image"
+                            class="h-120 w-full object-cover">
+
+                        <div
+                            class="absolute left-4 top-4 rounded-full border border-cyan-400/30 bg-slate-900/70 px-3 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
+                            Website / Monitoring data
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white">HadirBossque — Website Admin Absensi & Monitoring</h3>
+                        <p class="mt-4 text-sm leading-7 text-slate-300">
+                            Sistem absensi dan monitoring kehadiran karyawan berbasis web. Fitur meliputi pencatatan
+                            waktu masuk/keluar, manajemen shift, anti-fake GPS untuk mencegah pemalsuan lokasi,
+                            face detection untuk verifikasi wajah saat check-in, pembuatan dan pencatatan aktivitas
+                            pengguna (activity logging), notifikasi keterlambatan, serta laporan periodik dan
+                            dashboard monitoring real-time. Backend menggunakan PHP/MySQL untuk integrasi perangkat
+                            dan kestabilan data.
+                        </p>
+
+                        <div class="mt-5 flex flex-wrap gap-2">
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">PHP</span>
+                                     <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Javascript</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">MySQL</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Bootstrap</span>
+                        </div>
+
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <a href="https://www.hadirbossque.com" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 transition hover:-translate-y-0.5">
+                                Live Demo
+                                <span>↗</span>
+                            </a>
+
+                            <a href="https://www.hadirbossque.com" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                                GitHub
+                                <span>⌘</span>
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div
+                    class="group overflow-hidden rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30">
+                    <div class="relative overflow-hidden">
+                        <img src="images/project/lapor_web.png" alt="Project Image"
+                            class="h-120 w-full object-cover">
+
+                        <div
+                            class="absolute left-4 top-4 rounded-full border border-cyan-400/30 bg-slate-900/70 px-3 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
+                            Website / Monitoring data
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white">LaporBossque — Website Admin Monitoring & Pelaporan
+                        </h3>
+                        <p class="mt-4 text-sm leading-7 text-slate-300">
+                            Platform monitoring dan pelaporan lokasi untuk tim lapangan. Fitur utama meliputi
+                            pembuatan laporan terlokalisasi per checkpoint/wilayah, ringkasan dan filter laporan
+                            per wilayah, kemampuan mengirim SOS darurat (koordinat + foto), serta sistem inspeksi
+                            ruangan dengan checklist, foto bukti, dan status inspeksi. Menyediakan API real-time,
+                            notifikasi, dan dashboard analitik untuk tim operasional.
+                        </p>
+
+                        <div class="mt-5 flex flex-wrap gap-2">
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">PHP</span>
+                                     <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Javascript</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">MySQL</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Bootstrap</span>
+                        </div>
+
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <a href="http://laporbossque.com" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 transition hover:-translate-y-0.5">
+                                Live Demo
+                                <span>↗</span>
+                            </a>
+
+                            <a href="http://laporbossque.com" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                                GitHub
+                                <span>⌘</span>
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div
+                    class="group overflow-hidden rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30">
+                    <div class="relative overflow-hidden">
+                        <img src="images/project/hadir_app.jpeg" alt="HadirBossQue Mobile screenshot" class="h-60  w-full object-cover object-center">
+
+                        <div
+                            class="absolute left-4 top-4 rounded-full border border-cyan-400/30 bg-slate-900/70 px-3 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
+                            Mobile / Operations
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white">HadirBossQue Mobile</h3>
+                        <p class="mt-4 text-sm leading-7 text-slate-300">
+                        Aplikasi absensi dan monitoring berbasis mobile yang dibangun menggunakan Flutter/Dart. Fitur meliputi check-in/check-out, manajemen shift, anti-fake GPS untuk mencegah pemalsuan lokasi, verifikasi wajah saat check-in, pencatatan aktivitas, serta pelaporan SOS. Terintegrasi dengan backend RESTful untuk sinkronisasi data yang andal.
+                        </p>
+
+                        <div class="mt-5 flex flex-wrap gap-2">
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Flutter
+                                / Dart</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Laravel</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Mysql</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">RESTful
+                                API</span>
+                        </div>
+
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <a href="https://play.google.com/store/apps/details?id=com.adp.HadirbossQuee&pcampaignid=web_share" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 transition hover:-translate-y-0.5">
+                                Live Demo
+                                <span>↗</span>
+                            </a>
+
+                            <a href="https://play.google.com/store/apps/details?id=com.adp.HadirbossQuee&pcampaignid=web_share" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                                GitHub
+                                <span>⌘</span>
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div
+                    class="group overflow-hidden rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30">
+                    <div class="relative overflow-hidden">
+                        <img src="images/project/lapor_app.jpeg" alt="Project Image" class="h-60 w-full object-cover">
+
+                        <div
+                            class="absolute left-4 top-4 rounded-full border border-cyan-400/30 bg-slate-900/70 px-3 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
+                            Mobile / Operations
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white">LaporBossQue Mobile</h3>
+                        <p class="mt-4 text-sm leading-7 text-slate-300">
+                          Aplikasi pelaporan dan monitoring berbasis mobile untuk tim lapangan. Pengguna dapat membuat laporan dengan geo-tag (lokasi) beserta foto, mengisi checklist inspeksi, serta mengirimkan notifikasi SOS yang berisi koordinat dan gambar. Aplikasi ini mendukung pengambilan data secara offline dengan sinkronisasi di latar belakang, serta terintegrasi dengan layanan backend untuk agregasi data, notifikasi real-time, dan analitik dashboard.
+                        </p>
+
+                        <div class="mt-5 flex flex-wrap gap-2">
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Flutter
+                                / Dart</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Laravel</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Mysql</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">RESTful
+                                API</span>
+                        </div>
+
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <a href="https://play.google.com/store/apps/details?id=com.adp.laporbosque&pcampaignid=web_share" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 transition hover:-translate-y-0.5">
+                                Live Demo
+                                <span>↗</span>
+                            </a>
+
+                            <a href="https://play.google.com/store/apps/details?id=com.adp.laporbosque&pcampaignid=web_share" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                                GitHub
+                                <span>⌘</span>
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div
+                    class="group overflow-hidden rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30">
+                    <div class="relative overflow-hidden">
+                        <img src="images/project/sms.png" alt="Project Image" class="h-60 w-full object-cover">
+
+                        <div
+                            class="absolute left-4 top-4 rounded-full border border-cyan-400/30 bg-slate-900/70 px-3 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
+                            Websites / Portal Admin
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white">SMS — Security Management System</h3>
+                        <p class="mt-4 text-sm leading-7 text-slate-300">
+                            Backend e‑commerce penuh untuk katalog produk, keranjang, proses checkout, manajemen
+                            pesanan, dan autentikasi pengguna. Dibangun menggunakan Spring Boot with RESTful APIs
+                            dan MySQL untuk performa, keamanan, dan skalabilitas.
+                        </p>
+
+                        <div class="mt-5 flex flex-wrap gap-2">
+                            <span
+                        
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">PHP</span>
+                                     <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Javascript</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">MySQL</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Bootstrap</span>
+                        </div>
+
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <a href="https://sms2.turjawali.com" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 transition hover:-translate-y-0.5">
+                                Live Demo
+                                <span>↗</span>
+                            </a>
+
+                            <a href="https://sms2.turjawali.com" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                                GitHub
+                                <span>⌘</span>
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+                 <div
+                    class="group overflow-hidden rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30">
+                    <div class="relative overflow-hidden">
+                        <img src="images/project/kleeninspect.png" alt="Project Image" class="h-60 w-full object-cover">
+
+                        <div
+                            class="absolute left-4 top-4 rounded-full border border-cyan-400/30 bg-slate-900/70 px-3 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
+                            Websites / Portal Admin
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white">KleenInspect — Inspection Control System</h3>
+                        <p class="mt-4 text-sm leading-7 text-slate-300">
+                           Eliminasi inefisiensi, kebocoran anggaran, dan risiko operasional. KleenInspect memberikan visibilitas real-time dan akuntabilitas berbasis data untuk pengambilan keputusan strategis untuk manajemen gedung.
+                        </p>
+
+                        <div class="mt-5 flex flex-wrap gap-2">
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">PHP</span>
+                                     <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Javascript</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">MySQL</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Bootstrap</span>
+                        </div>
+
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <a href="https://kleeninspect.com" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 transition hover:-translate-y-0.5">
+                                Live Demo
+                                <span>↗</span>
+                            </a>
+
+                            <a href="https://kleeninspect.com" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                                GitHub
+                                <span>⌘</span>
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+                 <div
+                    class="group overflow-hidden rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30">
+                    <div class="relative overflow-hidden">
+                        <img src="images/project/sentivex.png" alt="Project Image" class="h-60 w-full object-cover">
+
+                        <div
+                            class="absolute left-4 top-4 rounded-full border border-cyan-400/30 bg-slate-900/70 px-3 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
+                            Websites / Portal Admin
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white">Sentivex</h3>
+                        <p class="mt-4 text-sm leading-7 text-slate-300">
+                           Kontrol penuh aset, maintenance, work order, dan tiket dalam satu platform untuk efisiensi menyeluruh.
+                           Kelola tugas, laporkan insiden, lakukan inspeksi, dan akses ESS kapan saja, di mana saja via aplikasi Android.
+                        </p>
+
+                        <div class="mt-5 flex flex-wrap gap-2">
+                          <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">PHP</span>
+                                     <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Javascript</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">MySQL</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Bootstrap</span>
+                        </div>
+
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <a href="https://sentivex.com" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 transition hover:-translate-y-0.5">
+                                Live Demo
+                                <span>↗</span>
+                            </a>
+
+                            <a href="https://sentivex.com" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                                GitHub
+                                <span>⌘</span>
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+                 <div
+                    class="group overflow-hidden rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30">
+                    <div class="relative overflow-hidden">
+                        <img src="images/project/payroll.png" alt="Project Image" class="h-60 w-full object-cover">
+
+                        <div
+                            class="absolute left-4 top-4 rounded-full border border-cyan-400/30 bg-slate-900/70 px-3 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
+                            Websites / Portal Admin
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white">Payroll Management</h3>
+                        <p class="mt-4 text-sm leading-7 text-slate-300">
+                               Sistem penggajian karyawan yang dirancang untuk mengelola perhitungan gaji secara otomatis dan akurat. 
+        Fitur meliputi perhitungan gaji berdasarkan kehadiran, lembur, tunjangan, dan potongan, 
+        manajemen data karyawan, pembuatan slip gaji, serta laporan payroll yang terintegrasi. 
+        Dibangun dengan arsitektur backend yang kuat untuk memastikan performa, keamanan, dan skalabilitas sistem.
+                        </p>
+
+                        <div class="mt-5 flex flex-wrap gap-2">
+                          <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">PHP</span>
+                                 <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Javascript</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">MySQL</span>
+                            <span
+                                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">Bootstrap</span>
+                        </div>
+
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <a href="https://sentivex.com/payroll" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 transition hover:-translate-y-0.5">
+                                Live Demo
+                                <span>↗</span>
+                            </a>
+
+                            <a href="https://sentivex.com/payroll" target="_blank"
+                                class="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                                GitHub
+                                <span>⌘</span>
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+               
+            </div>
+        </section>
+        <section id="contact" class="mx-auto max-w-7xl px-4 pb-16 pt-12 sm:px-6 lg:px-8">
+            <div class="mb-10 max-w-3xl">
+                <div
+                    class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-cyan-300">
+                    Kontak</div>
+                <h2 class="mt-4 text-3xl font-black sm:text-4xl" data-i18n="contact_title">Get in Touch</h2>
+                <p class="mt-4 text-base leading-8 text-slate-300" data-i18n="contact_desc">Hubungi saya untuk informasi lebih lanjut atau kolaborasi.</p>
+            </div>
+
+            <div class="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+                <div class="glass-dark rounded-[32px] p-7">
+                    <h3 class="text-2xl font-bold" data-i18n="contact_subtitle">Mari Terhubung</h3>
+                    <p class="mt-4 text-sm leading-7 text-slate-300" data-i18n="contact_msg">Silakan hubungi saya melalui formulir di bawah ini atau lewat informasi kontak yang tersedia.</p>
+                    <div class="mt-6 space-y-4">
+                        <div class="rounded-2xl bg-white/5 p-4">
+                            <div class="text-sm text-slate-400" data-i18n="contact_email_label">Email</div>
+                            <div class="mt-1 font-medium">madadwisaputra551@domain.com</div>
+                        </div>
+                        <div class="rounded-2xl bg-white/5 p-4">
+                            <div class="text-sm text-slate-400" data-i18n="contact_phone_label">Telepon</div>
+                            <div class="mt-1 font-medium">+6265710316668</div>
+                        </div>
+                        <div class="rounded-2xl bg-white/5 p-4">
+                            <div class="text-sm text-slate-400" data-i18n="contact_location_label">Lokasi</div>
+                            <div class="mt-1 font-medium">Indonesia</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-dark rounded-[32px] p-7">
+                    <div class="grid gap-5 sm:grid-cols-2">
+                        <div>
+                            <label class="mb-2 block text-sm text-slate-400" data-i18n="contact_name_label">Nama</label>
+                            <input type="text" data-i18n="contact_name_placeholder" placeholder="Masukkan nama"
+                                class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none placeholder:text-slate-500 focus:border-cyan-400/50" />
+                        </div>
+                        <div>
+                            <label class="mb-2 block text-sm text-slate-400" data-i18n="contact_email_label">Email</label>
+                            <input type="email" data-i18n="contact_email_placeholder" placeholder="Masukkan email"
+                                class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none placeholder:text-slate-500 focus:border-cyan-400/50" />
+                        </div>
+                        <div>
+                            <label class="mb-2 block text-sm text-slate-400" data-i18n="contact_subject_label">Subjek</label>
+                            <input type="text" data-i18n="contact_subject_placeholder" placeholder="Judul pesan"
+                                class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none placeholder:text-slate-500 focus:border-cyan-400/50" />
+                        </div>
+                        <div>
+                            <label class="mb-2 block text-sm text-slate-400" data-i18n="contact_phone_label_form">Nomor Telepon</label>
+                            <input type="text" data-i18n="contact_phone_placeholder" placeholder="Masukkan nomor"
+                                class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none placeholder:text-slate-500 focus:border-cyan-400/50" />
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <label class="mb-2 block text-sm text-slate-400" data-i18n="contact_message_label">Pesan</label>
+                        <textarea rows="6" data-i18n="contact_message_placeholder" placeholder="Tulis pesan di sini..."
+                            class="w-full rounded-3xl border border-white/10 bg-white/5 px-4 py-4 text-white outline-none placeholder:text-slate-500 focus:border-cyan-400/50"></textarea>
+                    </div>
+                    <button
+                        class="mt-5 inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 px-5 py-3 font-semibold text-white shadow-glow transition hover:-translate-y-0.5">
+                        <span data-i18n="contact_send_btn">Kirim Pesan</span>
+                        <span>↗</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-white/10 py-12">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid gap-8 md:grid-cols-3">
+                <!-- About -->
+                <div>
+                    <div class="font-bold text-lg text-white" data-i18n="footer_about_title">Mada Dwi Saputra</div>
+                    <div class="mt-2 text-sm text-slate-400" data-i18n="footer_about_desc">Software Developer & Full-Stack Engineer dengan pengalaman mengembangkan solusi digital yang inovatif dan scalable.</div>
+                    <div class="mt-4 flex gap-4">
+                        <a href="https://github.com/mawitra" target="_blank" class="text-slate-400 hover:text-cyan-400 transition">
+                            <i class="fab fa-github text-lg"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/mada-dwi-saputra" target="_blank" class="text-slate-400 hover:text-cyan-400 transition">
+                            <i class="fab fa-linkedin text-lg"></i>
+                        </a>
+                        <a href="https://instagram.com/username" target="_blank" class="text-slate-400 hover:text-cyan-400 transition">
+                            <i class="fab fa-instagram text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <div class="font-semibold text-white mb-4" data-i18n="footer_quick_links">Quick Links</div>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#home" class="hover:text-cyan-400 transition"><span data-i18n="footer_home">Home</span></a></li>
+                        <li><a href="#about" class="hover:text-cyan-400 transition"><span data-i18n="nav_about">About</span></a></li>
+                        <li><a href="#projects" class="hover:text-cyan-400 transition"><span data-i18n="footer_projects">Projects</span></a></li>
+                        <li><a href="#contact" class="hover:text-cyan-400 transition"><span data-i18n="nav_contact">Contact</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <div class="font-semibold text-white mb-4" data-i18n="footer_get_in_touch">Get in Touch</div>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-envelope text-cyan-400"></i>
+                            <a href="mailto:madadwisaputra551@domain.com" class="hover:text-cyan-400 transition">madadwisaputra551@domain.com</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-phone text-cyan-400"></i>
+                            <a href="tel:+6265710316668" class="hover:text-cyan-400 transition">+62 657 103 16668</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-map-marker-alt text-cyan-400"></i>
+                            <span>Indonesia</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-8 border-t border-white/10 pt-8">
+                <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    
+                    <div class="text-sm text-slate-500" data-i18n="footer_copyright">© 2026 Mada Dwi Saputra • All Rights Reserved</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+        <!-- Image lightbox modal -->
+        <div id="img-lightbox" class="hidden fixed inset-0 z-50 items-center justify-center p-4">
+                <div id="img-lightbox-overlay" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+                <div class="relative max-w-5xl max-h-[90vh] w-full z-60 flex items-center justify-center">
+                        <button id="img-lightbox-close" class="absolute right-2 top-2 z-70 rounded-full bg-white/10 p-2 text-white hover:bg-white/20">✕</button>
+                        <img id="img-lightbox-img" src="" alt="Preview" class="max-w-full max-h-[85vh] rounded-lg shadow-2xl"/>
+                </div>
+        </div>
+
+        <style>
+        /* Lightbox styles (minimal) */
+        #img-lightbox { display: none; }
+        #img-lightbox.show { display: flex; }
+        #img-lightbox-overlay { cursor: pointer; }
+        #img-lightbox-close { background: rgba(255,255,255,0.06); border: none; }
+        #img-lightbox-img { object-fit: contain; }
+        </style>
+
+        <script>
+        // Lightbox for project images inside #projects
+        (function(){
+            const lightbox = document.getElementById('img-lightbox');
+            const overlay = document.getElementById('img-lightbox-overlay');
+            const imgEl = document.getElementById('img-lightbox-img');
+            const closeBtn = document.getElementById('img-lightbox-close');
+
+            function show(src, alt){
+                imgEl.src = src;
+                imgEl.alt = alt || 'Preview';
+                lightbox.classList.add('show');
+                // lock scroll
+                document.documentElement.style.overflow = 'hidden';
+            }
+
+            function hide(){
+                lightbox.classList.remove('show');
+                imgEl.src = '';
+                document.documentElement.style.overflow = '';
+            }
+
+            // Open when clicking project images in the projects section
+            document.addEventListener('click', function(e){
+                const target = e.target;
+                if(!target) return;
+                if(target.tagName === 'IMG' && target.closest && target.closest('#projects')){
+                    const src = target.getAttribute('src') || target.dataset.src;
+                    if(src){
+                        show(src, target.alt);
+                    }
+                }
+            });
+
+            overlay.addEventListener('click', hide);
+            closeBtn.addEventListener('click', hide);
+            document.addEventListener('keydown', function(e){ if(e.key === 'Escape') hide(); });
+        })();
+        </script>
+
+        <script>
+        // Translation Object
+        const translations = {
+            id: {
+                // Header & Nav
+                nav_about: 'Tentang',
+                nav_skills: 'Keahlian',
+                nav_certificates: 'Sertifikat',
+                nav_career: 'Karier',
+                nav_experience: 'Pengalaman',
+                nav_projects: 'Project',
+                nav_contact: 'Kontak',
+                
+                // Hero Section
+                hero_greeting: 'Selamat Datang,',
+                hero_title: 'mari jelajahi perjalanan dan karya yang telah saya bangun',
+                hero_desc: 'Portfolio ini merangkum pengalaman, keahlian, project, dan informasi penting lainnya yang mencerminkan perjalanan profesional saya.',
+                hero_btn_project: 'Lihat Project',
+                hero_btn_contact: 'Hubungi Saya',
+                
+                // About Section
+                about_title: 'Profil Profesional',
+                about_desc: 'Menampilkan informasi profesional, fokus pekerjaan, dan nilai kunci yang dibawa ke setiap project dan kolaborasi.',
+                about_focus_title: 'Profesi & Fokus Utama',
+                about_focus_text: 'Fokus pada pengembangan solusi digital lintas fungsi: pengembangan aplikasi mobile, website bisnis, integrasi backend, analisis sistem, hingga pengembangan bisnis. Kombinasi ini membuat setiap solusi tidak hanya teknis yang solid, tetapi juga relevan dengan operasional dan bisnis.',
+                about_value_title: 'Nilai yang Ditawarkan',
+                about_value_1: 'Analisis kebutuhan detail',
+                about_value_2: 'Integrasi API yang rapi',
+                about_value_3: 'Fokus efisiensi operasional',
+                about_value_4: 'Alur sistem yang jelas',
+                about_value_5: 'Solusi yang scalable',
+                
+                // Skills Section
+                skills_title: 'Bahasa Pemrograman dan Kemampuan',
+                skills_desc: 'Menampilkan bahasa pemrograman, tools, framework, database, dan kemampuan analisis yang mendukung berbagai kebutuhan project.',
+                skills_languages: 'Bahasa Pemrograman',
+                skills_frameworks: 'Framework & Tools',
+                skills_database: 'Database & Backend',
+                skills_business: 'Bisnis & Analisis',
+                
+                // Certificates Section
+                cert_title: 'Sertifikasi & Pencapaian',
+                cert_desc: 'Bagian ini menampilkan sertifikasi dalam bentuk gambar; geser ke samping untuk melihat lainnya.',
+                
+                // Career Section
+                career_title: 'Perjalanan Karier',
+                career_desc: 'Timeline karier untuk menunjukkan perkembangan posisi.',
+                career_current: 'Saat Ini',
+                career_since: 'sejak',
+                
+                // Experience Section
+                exp_title: 'Pengalaman di Perusahaan',
+                exp_desc: 'Bagian ini menampilkan riwayat kerja, posisi yang pernah dipegang, dan kontribusi utama pada masing-masing perusahaan.',
+                
+                // Projects Section
+                projects_title: 'Showcase Project',
+                projects_desc: 'Beberapa project yang pernah dikerjakan, lengkap dengan preview tampilan, teknologi yang digunakan, dan tombol untuk melihat demo maupun repository project.',
+                
+                // Project Descriptions
+                inventory_title: 'Iventory — Sistem Manajemen Barang Masuk & Keluar',
+                inventory_desc: 'Platform manajemen inventory untuk tracking barang masuk dan keluar secara real-time. Fitur meliputi pencatatan stok, pelaporan pergerakan barang, manajemen gudang, notifikasi stok minimal, dan laporan analitik untuk optimalisasi inventory dan efisiensi operasional.',
+                
+                perpustakaan_title: 'Perpustakaan — Sistem Manajemen Data Buku & Peminjaman',
+                perpustakaan_desc: 'Platform manajemen perpustakaan digital untuk mengelola katalog buku dan sistem peminjaman. Fitur meliputi database buku lengkap, tracking peminjaman & pengembalian, reminder denda otomatis, reservasi buku, laporan member aktif, dan dashboard statistik penggunaan perpustakaan untuk meningkatkan aksesibilitas dan efisiensi pengelolaan koleksi buku.',
+                
+                myachievement_title: 'MyAchievement — Platform Unggah Sertifikat & Piagam',
+                myachievement_desc: 'Platform untuk mengunggah, menyimpan, dan memamerkan sertifikat serta piagam digital. Menyediakan verifikasi berkas, kategori sertifikat, dan dashboard ringkasan untuk meninjau pencapaian secara mudah.',
+                
+                erapat_title: 'E-Rapat Online — Platform Rapat & Kolaborasi',
+                erapat_desc: 'Solusi rapat daring untuk penjadwalan, video conference, pembagian agenda, pencatatan notulen, dan manajemen peserta dengan integrasi kalender serta rekaman rapat untuk kemudahan kolaborasi.',
+                
+                absensi_title: 'Absensi RFID',
+                absensi_desc: 'Aplikasi absensi berbasis RFID untuk meningkatkan efisiensi dan akurasi dalam pencatatan kehadiran.',
+                
+                java_title: 'Java-Laza — Backend E‑Commerce (REST API)',
+                java_desc: 'Backend e‑commerce penuh untuk katalog produk, keranjang, proses checkout, manajemen pesanan, dan autentikasi pengguna. Dibangun menggunakan Spring Boot with RESTful APIs dan MySQL untuk performa, keamanan, dan skalabilitas.',
+                
+                hadirweb_title: 'HadirBossque — Website Admin Absensi & Monitoring',
+                hadirweb_desc: 'Sistem absensi dan monitoring kehadiran karyawan berbasis web. Fitur meliputi pencatatan waktu masuk/keluar, manajemen shift, anti-fake GPS untuk mencegah pemalsuan lokasi, face detection untuk verifikasi wajah saat check-in, pembuatan dan pencatatan aktivitas pengguna (activity logging), notifikasi keterlambatan, serta laporan periodik dan dashboard monitoring real-time. Backend menggunakan PHP/MySQL untuk integrasi perangkat dan kestabilan data.',
+                
+                laporbossqueweb_title: 'LaporBossque — Website Admin Monitoring & Pelaporan',
+                laporbossqueweb_desc: 'Platform monitoring dan pelaporan lokasi untuk tim lapangan. Fitur utama meliputi pembuatan laporan terlokalisasi per checkpoint/wilayah, ringkasan dan filter laporan per wilayah, kemampuan mengirim SOS darurat (koordinat + foto), serta sistem inspeksi ruangan dengan checklist, foto bukti, dan status inspeksi. Menyediakan API real-time, notifikasi, dan dashboard analitik untuk tim operasional.',
+                
+                hadirmobile_title: 'HadirBossQue Mobile',
+                hadirmobile_desc: 'A mobile attendance & monitoring app built with Flutter/Dart. Features include check-in/check-out, shift management, anti-fake GPS to prevent location spoofing, face verification for check-ins, activity logging, and SOS reporting. Integrates with a RESTful backend for reliable data sync.',
+                
+                lapormobile_title: 'LaporBossQue Mobile',
+                lapormobile_desc: 'A mobile reporting and monitoring app for field teams. Users can create geo-tagged reports with photos, fill inspection checklists, and send SOS alerts containing coordinates and images. The app supports offline capture with background sync and integrates with a backend service for aggregation, real-time notifications, and dashboard analytics.',
+                
+                sms_title: 'SMS — Security Management System',
+                sms_desc: 'Platform manajemen keamanan untuk kontrol akses, logging sistem, dan monitoring keamanan real-time dengan integrasi perangkat yang stabil.',
+                
+                kleen_title: 'KleenInspect — Inspection Control System',
+                kleen_desc: 'Eliminasi inefisiensi, kebocoran anggaran, dan risiko operasional. KleenInspect memberikan visibilitas real-time dan akuntabilitas berbasis data untuk pengambilan keputusan strategis untuk manajemen gedung.',
+                
+                sentivex_title: 'Sentivex',
+                sentivex_desc: 'Kontrol penuh aset, maintenance, work order, dan tiket dalam satu platform untuk efisiensi menyeluruh. Kelola tugas, laporkan insiden, lakukan inspeksi, dan akses ESS kapan saja, di mana saja via aplikasi Android.',
+                
+                payroll_title: 'Payroll Management',
+                payroll_desc: 'Sistem perhitungan penggajian berbasis data attendance dan summary timesheet karyawan secara otomatis dengan laporan detail dan analytics.',
+                
+                // Contact Section
+                contact_title: 'Get in Touch',
+                contact_desc: 'Hubungi saya untuk informasi lebih lanjut atau kolaborasi.',
+                contact_subtitle: 'Mari Terhubung',
+                contact_msg: 'Silakan hubungi saya melalui formulir di bawah ini atau lewat informasi kontak yang tersedia.',
+                contact_email_label: 'Email',
+                contact_phone_label: 'Telepon',
+                contact_location_label: 'Lokasi',
+                contact_name_label: 'Nama',
+                contact_name_placeholder: 'Masukkan nama',
+                contact_email_placeholder: 'Masukkan email',
+                contact_subject_label: 'Subjek',
+                contact_subject_placeholder: 'Judul pesan',
+                contact_phone_label_form: 'Nomor Telepon',
+                contact_phone_placeholder: 'Masukkan nomor',
+                contact_message_label: 'Pesan',
+                contact_message_placeholder: 'Tulis pesan di sini...',
+                contact_send_btn: 'Kirim Pesan',
+                
+                // Footer
+                footer_about_title: 'Mada Dwi Saputra',
+                footer_about_desc: 'Software Developer & Full-Stack Engineer dengan pengalaman mengembangkan solusi digital yang inovatif dan scalable.',
+                footer_quick_links: 'Link Cepat',
+                footer_get_in_touch: 'Hubungi Kami',
+                footer_home: 'Beranda',
+                footer_projects: 'Project',
+                footer_copyright: '© 2026 Mada Dwi Saputra • Semua Hak Dilindungi',
+                footer_made_with: 'Dibuat dengan',
+                footer_live_demo: 'Demo Live',
+                footer_github: 'GitHub',
+            },
+            en: {
+                // Header & Nav
+                nav_about: 'About',
+                nav_skills: 'Skills',
+                nav_certificates: 'Certificates',
+                nav_career: 'Career',
+                nav_experience: 'Experience',
+                nav_projects: 'Projects',
+                nav_contact: 'Contact',
+                
+                // Hero Section
+                hero_greeting: 'Welcome,',
+                hero_title: 'let\'s explore the journey and work I have built',
+                hero_desc: 'This portfolio summarizes my experience, skills, projects, and other important information that reflect my professional journey.',
+                hero_btn_project: 'View Project',
+                hero_btn_contact: 'Contact Me',
+                
+                // About Section
+                about_title: 'Professional Profile',
+                about_desc: 'Displaying professional information, work focus, and key values brought to every project and collaboration.',
+                about_focus_title: 'Profession & Main Focus',
+                about_focus_text: 'Focuses on developing cross-functional digital solutions: mobile application development, websites business, backend integration, system analysis, to business development. This combination makes each solution not only technically robust, but also technically relevant operations and business.',
+                about_value_title: 'Value Offered',
+                about_value_1: 'Needs analysis details',
+                about_value_2: 'Neat API integration',
+                about_value_3: 'Focus on efficiency operational',
+                about_value_4: 'Clear system flow',
+                about_value_5: 'Scalable solution',
+                
+                // Skills Section
+                skills_title: 'Programming Languages and Capabilities',
+                skills_desc: 'Displays programming languages, tools, frameworks, database, and analysis capabilities that support various project needs.',
+                skills_languages: 'Programming Languages',
+                skills_frameworks: 'Framework & Tools',
+                skills_database: 'Database & Backend',
+                skills_business: 'Business & Analysis',
+                
+                // Certificates Section
+                cert_title: 'Certifications & Achievements',
+                cert_desc: 'This section displays certifications in image form; swipe to the right to see others.',
+                
+                // Career Section
+                career_title: 'Career Journey',
+                career_desc: 'Career timeline to show position development.',
+                career_current: 'Present',
+                career_since: 'since',
+                
+                // Experience Section
+                exp_title: 'Company Experience',
+                exp_desc: 'This section displays work history, positions held, and main contributions to each company.',
+                
+                // Projects Section
+                projects_title: 'Project Showcase',
+                projects_desc: 'Some projects I have worked on, complete with display preview, technologies used, and buttons to see demo and project repository.',
+                
+                // Project Descriptions
+                inventory_title: 'Iventory — Inventory Management System',
+                inventory_desc: 'Inventory management platform for tracking incoming and outgoing goods in real-time. Features include stock recording, goods movement reporting, warehouse management, minimum stock notifications, and analytics reports for inventory optimization and operational efficiency.',
+                
+                perpustakaan_title: 'Perpustakaan — Library Management System',
+                perpustakaan_desc: 'Digital library management platform for managing book catalogs and borrowing systems. Features include complete book database, borrowing & return tracking, automatic fine reminders, book reservations, active member reports, and library usage statistics dashboard to increase accessibility and efficiency of book collection management.',
+                
+                myachievement_title: 'MyAchievement — Certificate & Award Upload Platform',
+                myachievement_desc: 'Platform to upload, save, and display digital certificates and awards. Provides file verification, certificate categories, and summary dashboard to view achievements easily.',
+                
+                erapat_title: 'E-Rapat Online — Meeting & Collaboration Platform',
+                erapat_desc: 'Online meeting solution for scheduling, video conferencing, agenda sharing, meeting minutes recording, and participant management with calendar integration and meeting recording for easy collaboration.',
+                
+                absensi_title: 'RFID Attendance',
+                absensi_desc: 'RFID-based attendance application to improve efficiency and accuracy in attendance recording.',
+                
+                java_title: 'Java-Laza — Backend E‑Commerce (REST API)',
+                java_desc: 'Full e‑commerce backend for product catalog, shopping cart, checkout process, order management, and user authentication. Built using Spring Boot with RESTful APIs and MySQL for performance, security, and scalability.',
+                
+                hadirweb_title: 'HadirBossque — Admin Website for Attendance & Monitoring',
+                hadirweb_desc: 'Web-based employee attendance and monitoring system. Features include entry/exit time recording, shift management, anti-fake GPS to prevent location spoofing, face detection for check-in verification, user activity recording (activity logging), late notifications, and periodic reports with real-time monitoring dashboard. Backend uses PHP/MySQL for device integration and data stability.',
+                
+                laporbossqueweb_title: 'LaporBossque — Admin Website for Monitoring & Reporting',
+                laporbossqueweb_desc: 'Location monitoring and reporting platform for field teams. Main features include localized report creation per checkpoint/area, report summary and filtering per area, ability to send emergency SOS (coordinates + photos), and room inspection system with checklist, proof photos, and inspection status. Provides real-time APIs, notifications, and analytics dashboard for operational teams.',
+                
+                hadirmobile_title: 'HadirBossQue Mobile',
+                hadirmobile_desc: 'A mobile attendance & monitoring app built with Flutter/Dart. Features include check-in/check-out, shift management, anti-fake GPS to prevent location spoofing, face verification for check-ins, activity logging, and SOS reporting. Integrates with a RESTful backend for reliable data sync.',
+                
+                lapormobile_title: 'LaporBossQue Mobile',
+                lapormobile_desc: 'A mobile reporting and monitoring app for field teams. Users can create geo-tagged reports with photos, fill inspection checklists, and send SOS alerts containing coordinates and images. The app supports offline capture with background sync and integrates with a backend service for aggregation, real-time notifications, and dashboard analytics.',
+                
+                sms_title: 'SMS — Security Management System',
+                sms_desc: 'Security management platform for access control, system logging, and real-time security monitoring with stable device integration.',
+                
+                kleen_title: 'KleenInspect — Inspection Control System',
+                kleen_desc: 'Eliminate inefficiency, budget leaks, and operational risks. KleenInspect provides real-time visibility and data-based accountability for strategic decision-making for building management.',
+                
+                sentivex_title: 'Sentivex',
+                sentivex_desc: 'Full control of assets, maintenance, work orders, and tickets in one platform for overall efficiency. Manage tasks, report incidents, conduct inspections, and access ESS anytime, anywhere via Android application.',
+                
+                payroll_title: 'Payroll Management',
+                payroll_desc: 'Automatic payroll calculation system based on attendance data and employee timesheet summary with detailed reports and analytics.',
+                
+                // Contact Section
+                contact_title: 'Get in Touch',
+                contact_desc: 'Contact me for more information or collaboration.',
+                contact_subtitle: 'Let\'s Connect',
+                contact_msg: 'Please contact me through the form below or through the contact information available.',
+                contact_email_label: 'Email',
+                contact_phone_label: 'Phone',
+                contact_location_label: 'Location',
+                contact_name_label: 'Name',
+                contact_name_placeholder: 'Enter name',
+                contact_email_placeholder: 'Enter email',
+                contact_subject_label: 'Subject',
+                contact_subject_placeholder: 'Message title',
+                contact_phone_label_form: 'Phone Number',
+                contact_phone_placeholder: 'Enter number',
+                contact_message_label: 'Message',
+                contact_message_placeholder: 'Write message here...',
+                contact_send_btn: 'Send Message',
+                
+                // Footer
+                footer_about_title: 'Mada Dwi Saputra',
+                footer_about_desc: 'Software Developer & Full-Stack Engineer with experience developing innovative and scalable digital solutions.',
+                footer_quick_links: 'Quick Links',
+                footer_get_in_touch: 'Get in Touch',
+                footer_home: 'Home',
+                footer_projects: 'Projects',
+                footer_copyright: '© 2026 Mada Dwi Saputra • All Rights Reserved',
+                footer_made_with: 'Made with',
+                footer_live_demo: 'Live Demo',
+                footer_github: 'GitHub',
+            }
+        };
+
+        // Language Management
+        let currentLang = localStorage.getItem('language') || 'id';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('language', lang);
+            updatePageLanguage();
+            updateButtons();
+        }
+
+        function updateButtons() {
+            document.getElementById('langID').classList.toggle('active', currentLang === 'id');
+            document.getElementById('langID').classList.toggle('bg-cyan-500/20', currentLang === 'id');
+            document.getElementById('langID').classList.toggle('border-cyan-400/30', currentLang === 'id');
+            document.getElementById('langID').classList.toggle('text-slate-400', currentLang !== 'id');
+            
+            document.getElementById('langEN').classList.toggle('active', currentLang === 'en');
+            document.getElementById('langEN').classList.toggle('bg-cyan-500/20', currentLang === 'en');
+            document.getElementById('langEN').classList.toggle('border-cyan-400/30', currentLang === 'en');
+            document.getElementById('langEN').classList.toggle('text-white', currentLang === 'en');
+            document.getElementById('langEN').classList.toggle('text-slate-400', currentLang !== 'en');
+        }
+
+        function getTranslation(key) {
+            return translations[currentLang][key] || translations['id'][key] || key;
+        }
+
+        function updatePageLanguage() {
+            // Update all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                const translation = getTranslation(key);
+                
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    // For form elements, update placeholder
+                    el.placeholder = translation;
+                } else {
+                    // For regular elements, update textContent
+                    el.textContent = translation;
+                }
+            });
+        }
+
+        // Event Listeners for Language Buttons
+        document.getElementById('langID').addEventListener('click', () => setLanguage('id'));
+        document.getElementById('langEN').addEventListener('click', () => setLanguage('en'));
+
+        // Initialize
+        updatePageLanguage();
+        updateButtons();
+        </script>
+
+        <!-- function applyTheme(isDark) {
+            if (isDark) {
+                html.classList.add('dark');
+                body.className = 'bg-slate-950 text-white transition-colors duration-300 dark:bg-slate-950 dark:text-white';
+                themeIcon.textContent = '☀';
+                document.querySelectorAll('.glass-light').forEach(el => {
+                    el.classList.remove('glass-light');
+                    el.classList.add('glass-dark');
+                });
+            } else {
+                html.classList.remove('dark');
+                body.className = 'bg-slate-100 text-slate-900 transition-colors duration-300';
+                themeIcon.textContent = '🌙';
+
+                document.querySelectorAll('.glass-dark').forEach(el => {
+                    el.classList.remove('glass-dark');
+                    el.classList.add('glass-light');
+                });
+
+                document.querySelector('header').className = 'sticky top-0 z-50 border-b border-slate-200 bg-white/70 backdrop-blur-xl';
+                document.querySelectorAll('nav a').forEach(a => {
+                    a.classList.remove('text-slate-300', 'hover:text-white');
+                    a.classList.add('text-slate-600', 'hover:text-slate-900');
+                });
+            }
+        }
+
+        let isDark = true;
+        applyTheme(isDark);
+
+        themeToggle.addEventListener('click', () => {
+            isDark = !isDark;
+            if (isDark) {
+                location.reload();
+            } else {
+                applyTheme(false);
+            }
+        });
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Certificates carousel: autoplay + manual controls
+        (function () {
+            const carousel = document.getElementById('certCarousel');
+            const prevBtn = document.getElementById('certPrev');
+            const nextBtn = document.getElementById('certNext');
+            if (!carousel) return;
+
+            const item = carousel.querySelector('div');
+            const gap = 16; // matches Tailwind gap-4 (1rem => 16px)
+            let itemWidth = item ? item.getBoundingClientRect().width + gap : 240;
+
+            function next() {
+                carousel.scrollBy({ left: itemWidth, behavior: 'smooth' });
+            }
+
+            function prev() {
+                carousel.scrollBy({ left: -itemWidth, behavior: 'smooth' });
+            }
+
+            let autoplay = setInterval(next, 3000);
+
+            carousel.addEventListener('mouseenter', () => clearInterval(autoplay));
+            carousel.addEventListener('mouseleave', () => autoplay = setInterval(next, 3000));
+
+            nextBtn && nextBtn.addEventListener('click', () => {
+                next();
+            });
+
+            prevBtn && prevBtn.addEventListener('click', () => {
+                prev();
+            });
+
+            // Recompute item width on resize
+            window.addEventListener('resize', () => {
+                const it = carousel.querySelector('div');
+                itemWidth = it ? it.getBoundingClientRect().width + gap : itemWidth;
+            });
+        })(); -->
+    </script>
+</body>
+
+</html>
